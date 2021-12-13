@@ -7,4 +7,13 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    /* Colores personalizados */
+
+    <color name="window_bg">#111111</color> // Color del fondo.
+    <color name="io_bg">#222222</color>     // Color del input / output.
+    <color name="green">#00cc66</color> // Color verde.
+    <color name="red">#fb4b4e</color> // Color rojo.
+
+
 </resources>
