@@ -2,8 +2,12 @@ package com.example.calculadora
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_main.*
+import org.mariuszgromada.math.mxparser.Expression
 import java.lang.Exception
+import java.text.DecimalFormat
+import javax.xml.xpath.XPathExpression
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -121,7 +125,7 @@ class MainActivity : AppCompatActivity() {
 
         equals.setOnClickListener {
 
-            // Función para calcular el resultado.
+            showResults()
 
         }
 
@@ -148,17 +152,33 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun showResults() {
+    fun showResults() = try {
 
-        try {
+        val expression = getInputExpression()
+        val result = Expression(expression).calculate()
+        if (result.isNaN()) {
 
-            val expression = getInputExpression()
+            // Mostrar error.
 
-        } catch (e: Exception) {
+            output.text = "Error"
+            output.setTextColor(ContextCompat.getColor(this, R.color.red))
 
+        } else {
 
+            // Mostrar resultado.
+
+            output.text = DecimalFormat("0.#######").format(result).toString()
+            output.setTextColor(ContextCompat.getColor(this, R.color.green))
 
         }
+
+    } catch (e: Exception) {
+
+        // Mostrar error.
+
+        output.text = "Error"
+        output.setTextColor(ContextCompat.getColor(this, R.color.red))
+
 
     }
 
