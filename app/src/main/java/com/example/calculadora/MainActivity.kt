@@ -3,6 +3,7 @@ package com.example.calculadora
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
+import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
         bracketLeft.setOnClickListener {
 
-                input.text = addInputText("(")
+            input.text = addInputText("(")
 
         }
 
@@ -127,9 +128,37 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    // Muestro en el input el caracter correspondiente.
+
     fun addInputText(buttonValue : String) : String {
 
         return "${input.text}$buttonValue"
+
+    }
+
+    /* Sustituyo el caracter correspondiente para que
+    considere la operación por válida. */
+
+
+    fun getInputExpression(): String {
+
+        var expression = input.text.replace(Regex("÷"), "/")
+        expression = expression.replace(Regex("×"), "*")
+        return expression
+
+    }
+
+    fun showResults() {
+
+        try {
+
+            val expression = getInputExpression()
+
+        } catch (e: Exception) {
+
+            
+
+        }
 
     }
 
