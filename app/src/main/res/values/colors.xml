@@ -10,8 +10,8 @@
 
     /* Colores personalizados */
 
-    <color name="window_bg">#111111</color> // Color del fondo.
-    <color name="io_bg">#222222</color>     // Color del input / output.
+    <color name="window_bg">#F7DCEF</color> // Color del fondo.
+    <color name="io_bg">#F7CCEF</color>     // Color del input / output.
     <color name="green">#00cc66</color> // Color verde.
     <color name="red">#fb4b4e</color> // Color rojo.
 
